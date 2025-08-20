@@ -1,0 +1,39 @@
+1ere etape : 
+composer require drupal/graphql drupal/graphql_compose
+
+2eme etape:
+Allez dans extensions puis cochez TOUT dans GraphQL et seulement GraphQL Compose + GraphQL Compose: Views
+
+3eme etape:
+Allez dans Configurations puis GraphQL Compose et Cocher dans les types de contenu qui nous intéresse, ici :
+Contenu -> Article -> Enable GraphQL et tous les fields
+
+4eme etape:
+Créer une Vue avec le type de contenu souhaité : Ici Article
+
+5eme etape:
+On ajoute dans la vue crée GraphQL et on met le format 'Affichage' en 'Champs' et pas 'Entité'
+puis dans les Champs, on choisit tous les fields qu'on avait coché.
+
+6eme etape:
+Personnaliser les champs, par exemple enlever les balises html dans 'Réecrire les résultats' et pour image mettre
+'Lien de l'image'
+puis enregistrer
+
+Si on veut un filtre (par exemple sur des étiquettes), il faut aller dans la partie Critères de filtrage puis ajouter ce qu'on veut filtrer.
+Il ne faut pas oublier d'exposer le filtre afin de pouvoir l'utiliser (la checkbox tout en haut 'Exposer ce filtre 
+aux visiteurs, pour leur permettre de le modifier')
+
+(PAS OUBLIER DE DONNER LES DROITS AUX ANONYMES (ou autres utilisateurs)!!!)
+
+7eme etape:
+Aller dans le serveur GraphQL Compose et aller dans 'Explorer' puis mettre la query avec les outils présents
+
+
+8eme etape:
+Le endpoint est écrit dans 'Modifier' sur le serveur
+Ici, ce sera toujours /graphql (sauf si on le change manuellement)
+Donc mtn faut aller sur l'url pour voir le résultat des query
+et on a 
+localhost:8084/graphql?query={testgraphqlvuesGraphql1{results{body,image,title}}}
+et cbon
